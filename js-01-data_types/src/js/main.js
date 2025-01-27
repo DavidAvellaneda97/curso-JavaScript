@@ -82,4 +82,153 @@ console.log( `MAX_SAFE_INTEGER + 1: ${Number.MAX_SAFE_INTEGER + 1 }`); 900719925
 console.log( `MAX_SAFE_INTEGER + 2: ${Number.MAX_SAFE_INTEGER + 2 }`); 9007199254740993
 console.log( `MAX_SAFE_INTEGER + 3: ${Number.MAX_SAFE_INTEGER + 3 }`); 9007199254740994
 console.log( `MAX_SAFE_INTEGER + 4: ${Number.MAX_SAFE_INTEGER + 4 }`); 9007199254740995
-console.log( `MAX_SAFE_INTEGER + 5: ${Number.MAX_SAFE_INTEGER + 5 }`);9007199254740996
+console.log( `MAX_SAFE_INTEGER + 5: ${Number.MAX_SAFE_INTEGER + 5 }`); 9007199254740996
+
+/*
+ Tipos de datos BigInt
+ Sirve para representar valores numéricos enteros, de los que el
+ tipo number no pueda representar o no es seguro.
+
+ Las operaciones con un bigInt se debe hacer con otro bigInt
+
+ */
+const myBigInt = 9007199254740991n;
+console.log( typeof myBigInt ); // bigint
+console.log( `Resultado de myBigInt + 1n: ${ myBigInt + 1n}`);9007199254740992
+console.log( `Resultado de myBigInt + 1n: ${ myBigInt + 2n}`);9007199254740993
+console.log( `Resultado de myBigInt + 1n: ${ myBigInt + 3n}`);9007199254740994
+console.log( `Resultado de myBigInt + 1n: ${ myBigInt + 4n}`);9007199254740995
+console.log( `Resultado de myBigInt + 1n: ${ myBigInt + 5n}`);9007199254740996
+console.log( `Resultado de myBigInt + 1n: ${ myBigInt + 6n}`);9007199254740997
+
+/*
+Tipo de dtao undefined
+- Una variable que es declarada, pero el tipo de datos 
+ no es definido
+ */
+
+ let myname;
+ console.log( typeof myName ); // 'undefined'
+
+ /*
+ Tipo de dato null
+  - Una variable que intencionalmete se borra el tipo de dato
+
+  */
+
+  let myAge;
+  console.log(`Tipo de dato en myAge: ${typeof myAge }`); // undefined
+  myAge = 20;
+  console.log(`Tipo de dato en myAge: ${typeof myAge }`); // number
+
+  myAge = null; // intensionalmente se borra el tipo de dato
+   // No es correcto usar typeof con un dato null
+   console.log(`Tipo de dato en myAge: ${typeof myAge }`); // object
+   console.log(`myAge es null? ${ myAge === null } `);// true
+
+
+   /*
+   Tipo de dato boolean
+   Tiene dos estados: true o false
+
+   */
+  const isActive = true;
+  console.log( typeof isActive ); // boolean
+
+
+  // --------------------------------------------------------------
+ /*
+   Conversion de datos (type casting)
+  
+   El type casting es el acto de convertir variables de un tipo de dato a otro.
+   Esto puede ser implícito(automático) o explícito (forzado por el desarrollador).
+ 
+   */
+
+   // Conversión implícita
+   const resultado = "5" + 2 ; // "52" Número convertido a string
+   const multiplicacion =  "5" * 3; // 15 El string convertido a number
+                        // 5 *3 = 15
+   const division = "two" + 6; // NaN
+                    // NaN * 6 = NaN
+
+
+/*
+conversion explicita de datos (coercion de tipo)
+
+*/
+const edadMascota = 10;
+// conversion explicita a String
+const edadMascotaString = String( edadMascota );
+console.log(`Mi mascota tiene ${ edadMascotaString }años`);
+console.log(`mi mascota tiene ${miMascota } años`);
+console.log(String( true ) ); // "true"
+console.log(String( null ) );// 
+console.log(String( undefined ) ); // "undefined"
+console.log(String( [] ) ); // empty Array-> ""
+console.log(String( [2,3,4,5,null,3] ) ); //"2,3,4,5,,3"
+console.log(string( {} ) ); // [onject Object]
+console.log(string( {name:"Serch" , active:true} ) ); // [object Object]
+// Para los objetos se recomienda usar el metod JSON.stringyfy( object )
+// convierte un ebjeto en formato JSON
+console.log( JSON.stringify( {name:"Serch" , active:true} ) ); // {"name":"Serch","active":true}
+
+// conversion explicita a number =============================================
+const costo = "100";
+const costoConIVA = 1.16 ; // 116.00 conversion implicita de string a number
+
+// conversion explicita a number ============================================
+const precioCroquetas = "2000";
+const precioJabon = "300.50";
+const precioVitaminas = "600.30";
+const costoTotal = precioCroquetas + precioJabon + precioVitaminas; // 200300.50600.30
+console.log( costoTotal );
+
+/*
+ Number() Vs parseInt() y parseFloat()
+  - Number convierte enteros y decimales
+  - Number devuelve NaN si la cadena contiene algún caracter no numérico
+  - Con parseInt y parseFloat, si la entrada comienza con un valor no numérico devuelve NaN
+  - parseInt convierte solo pa parte entera
+  - parseFloat convierte la parte entera y decimales
+  - parseInt y parseFloat realiza la conversión hasta encontrar un caracter no numérico
+*/
+
+console.log( Number("68.58") ); // 68.58
+console.log( parseInt("68.58") ); // 68
+console.log( parseFloat("68.58") ); // 68.58
+
+console.log( Number("68.58 dolares") ); // NaN
+console.log( parseInt("68.58 dolares") ); // 68
+console.log( parseFloat("68.58 dolares") ); // 65.58
+
+console.log( Number("$68.58 dolares") ); // NaN
+console.log( parseInt("$68.58 dolares") ); // NaN
+console.log( parseFloat("$68.58 dolares") ); // NaN
+
+console.log( Number("68-58") ); //
+console.log( parseInt("68-58") ); // 68
+console.log( parseFloat("68-58") ); // 68
+
+console.log( Number( true ) ); // 1
+console.log( Number ( false ) ); //0
+
+console.log( Number( [] ) ); // 0
+console.log( Number( [30] ) ); // 30
+console.log( Number( [30,40] ) ); // NaN
+
+// Conversion a tipo boolean
+// En la conversion a boolean los siguientes valores son false:
+// ""(empty string), 0, null, undefined
+console.log( Boolean(1) ); // true
+console.log( Boolean(10000) ); // true
+console.log( Boolean(-1000) ); // true
+console.log( Boolean(0) ); // false 
+console.log( Boolean(Nan) ); // false
+
+console.log( Boolean("") ); // false
+console.log( Boolean(" ") ); // true
+console.log( Boolean("1") ); // true
+console.log( Boolean("0") ); // true
+
+
