@@ -231,4 +231,16 @@ console.log( Boolean(" ") ); // true
 console.log( Boolean("1") ); // true
 console.log( Boolean("0") ); // true
 
+// Resumen:
+
+// Number()
+// [] (empty array) -> 0, [30]-> 30, [30,30]->NaN, false-> 0, true-> 1
+
+// String()
+// [] -> "", [12,2]->"12,2", function(){}-> "function(){}"
+// {} ->"[object,object]", {clave:valor, age:17} ->"[object,object]"
+
+// Para convertir un objeto a string, la forma correcta es usar
+// el método JSON.stringyfy( objeto );
+
 
